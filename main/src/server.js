@@ -67,3 +67,25 @@ initDb().then(() => {
     console.log(`Serveur démarré sur le port ${PORT}`);
   });
 });
+
+app.get("/commandes", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM commandes ORDER BY id ASC");
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post("/commandes", async (req, res) => {
+  const { item, quantity, price } = req.body;
+  try {
+    const result = await pool.query(
+      "INSERT INTO commandes (item, quantity, price) VALUES ($1, $2, $3) RETURNING *",
+      [item, quantity, price],
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
