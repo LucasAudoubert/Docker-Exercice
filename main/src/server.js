@@ -1,12 +1,11 @@
 import { Client } from "pg";
 
 const client = new Client({
-  user: "database-user",
-  password: "secretpassword!!",
-  host: "my.database-server.com",
-  port: 4444,
-  database: "super-cool-database",
+  database: process.env.POSTGRES_DB,
+  user: process.env.POSTGRES_USER,
+  password: process.env.POSTGRES_PASSWORD,
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
 });
 
-export default client;
 await client.connect();
