@@ -1,6 +1,6 @@
 import express from "express";
 import pg from "pg";
-import createTableQuery from "./schema.js";
+import createTableQuery from "./schemas.js";
 
 const { Pool } = pg;
 const app = express();
