@@ -1,12 +1,15 @@
-FROM node:24-alpine
+FROM node:20.11.0-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm ci --omit=dev
+COPY package.json package-lock.json ./
+
+RUN npm ci
 
 COPY . .
 
 EXPOSE 3000
 
-CMD ["vite", "build"]
+USER node
+
+CMD ["npm", "start"]
