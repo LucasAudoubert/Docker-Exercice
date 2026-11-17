@@ -11,36 +11,37 @@
 
 <body>
   <div id="app">
-  <h1>Commandes</h1>
+    <h1>Commandes</h1>
     <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Item</th>
-        <th>Quantité</th>
-        <th>Prix</th>
-        <th>Heure</th>
-      </tr>
-    </thead>
-    <tbody id="liste"><tr><td colspan="5">Chargement...</td></tr></tbody>
-  </table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Item</th>
+          <th>Quantité</th>
+          <th>Prix</th>
+        </tr>
+      </thead>
+      <tbody id="liste">
+        <tr>
+          <td colspan="5">Chargement...</td>
+        </tr>
+      </tbody>
+    </table>
 
-  <h2>Nouvelle commande</h2>
-  <form id="form">
-    <label for="id">Numero de commande</label>
-    <input name="id" placeholder="123456" required>
-    <label for=item">Item</label>
-    <input name="item"  required>
-    <label for="quantite">Quantité</label>
-    <input name="quantite" type="number" required>
-    <label for="prix">Prix</label>
-    <input name="prix" type="" required>
-    <label for="heure">Heure</label>
-    <input name="heure" type="time" required>
+    <h2>Nouvelle commande</h2>
+    <form id="form">
+      <label for="id">Numero de commande</label>
+      <input name="id" placeholder="123456" required>
+      <label for=item">Item</label>
+      <input name="item" required>
+      <label for="quantite">Quantité</label>
+      <input name="quantite" type="number" required>
+      <label for="prix">Prix</label>
+      <input name="prix" type="" required>
 
-    <button type="submit">Commander</button>
-  </form>
-  <p id="message"></p>
+      <button type="submit">Commander</button>
+    </form>
+    <p id="message"></p>
 
   </div>
   <script type="module" src="/src/main.js"></script>
