@@ -4,6 +4,9 @@ const client = new Client({
   user: "database-user",
   password: "secretpassword!!",
   host: "my.database-server.com",
-  port: 5334,
-  database: "database-name",
+  port: 4444,
+  database: "super-cool-database",
 });
+
+export default client;
+await client.connect();
