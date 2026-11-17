@@ -1,10 +1,18 @@
 import express from "express";
 import pg from "pg";
-import createTableQuery from "./schemas.js";
 
 const { Pool } = pg;
 const app = express();
 app.use(express.json());
+
+const createTableQuery = `
+  CREATE TABLE IF NOT EXISTS commandes (
+    id SERIAL PRIMARY KEY,
+    item VARCHAR(255) NOT NULL,
+    quantity INTEGER NOT NULL,
+    price NUMERIC(10, 2) NOT NULL
+  );
+`;
 
 const pool = new Pool({
   host: process.env.DB_HOST,
